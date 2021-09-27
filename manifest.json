@@ -1,0 +1,16 @@
+{
+    "name": "WebWork Equation Formatter",
+    "description": "An extension that formats your WebWork equations into easily readable equations.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["jquery.js", "content.js", "/mathquill/mathquill.js"],
+          "css": ["/mathquill/mathquill.css"]
+        }
+      ],
+      "action": {
+        "default_popup": "index.html"
+      }
+  }
