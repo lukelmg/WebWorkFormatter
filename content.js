@@ -9,10 +9,19 @@ if ((window.location.href).includes('//webwork2.') == true) {
             //console.log((input[i].value).latex());
             input[i].parentNode.insertBefore(output, input[i].nextSibling);
 
+            var config = {
+                autoOperatorNames: 'sin cos arcsin arccos arctan tan sec csc',
+                charsThatBreakOutOfSupSub: '+-=<>()'
+            }
+
             var htmlElement = output;
-            var mathField = MQ.MathField(htmlElement);
-            mathField.write(input[i].value)
-            console.log(mathField.el()); // => '2^{\\frac{3}{2}}'
+            var mathField = MQ.StaticMath(htmlElement);
+
+           // mathField.write(input[i].value)
+            for (let e = 0; e < (input[i].value).length; e++) {
+                mathField.write((input[i].value)[e])
+            }
+            console.log(mathField.htmlElement()); // => '2^{\\frac{3}{2}}'
         }
     }
 }
